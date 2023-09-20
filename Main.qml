@@ -26,6 +26,12 @@ Rectangle {
         20: "Nicoli",
     }
     property int numero: 22
+    property int contatore: 0
+    function controllo (n) {
+        if(n===9){return "X"}
+        else if(n===10){return "0"}
+        else {return (n+1).toString()}
+    }
     function position (value) {
         const totkey= Object.keys(names).length
         for (let i=0; i<totkey; i++)
@@ -143,7 +149,7 @@ Rectangle {
                     top: central_zone_2.top
                     left: central_zone_2.left
                     right: central_zone_2.right
-                }
+                }/*
                 Nomi {
                     id: name_1
                     Text {
@@ -253,9 +259,60 @@ Rectangle {
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
                     anchors.top: name_9.bottom
+                }*/
+                ListModel {
+                    id: group1
+                    ListElement { position: "1)"; name: "Diallo"}
+                    ListElement { position: "2)"; name: "Anguelov"}
+                    ListElement { position: "3)"; name: "Francinetti"}
+                    ListElement { position: "4)"; name: "Romeo"}
+                    ListElement { position: "5)"; name: "Balducchi"}
+                    ListElement { position: "6)"; name: "Zanini"}
+                    ListElement { position: "7)"; name: "Ratta"}
+                    ListElement { position: "8)"; name: "Carminati"}
+                    ListElement { position: "9)"; name: "Fumagalli"}
+                    ListElement { position: "10)"; name: "Levi"}
+                }
+                Component {
+                    id: namedelagate
+                        Row {
+                            height: 21.5
+                            Text {
+                                text: model.position
+                            }
+                            Text {
+                                text: model.name
+                            }
+                            spacing: 9
+                            anchors.horizontalCenter: parent.horizontalCenter
+                        }
+                }
+                ListView {
+                    anchors.fill: parent
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    model: group1
+                    delegate: namedelagate
+                    header:
+                        Rectangle {
+                        anchors {
+                            left: parent.left
+                            right: parent.right
+                        }
+                        height: 1
+                        color: "black"
+                    }
+                    footer:
+                        Rectangle {
+                        anchors {
+                            left: parent.left
+                            right: parent.right
+                        }
+                        height: 1
+                        color: "black"
+                    }
                 }
             }
-        }
+            }
         SideArea {
             id: right_side_2
             anchors {
@@ -292,117 +349,155 @@ Rectangle {
                     top: central_zone_3.top
                     left: central_zone_3.left
                     right: central_zone_3.right
+                }/*
+            Nomi {
+                id: name_11
+                Text {
+                    text: " 11) Diallo"
+                    font.pixelSize: 12
+                    font.bold: true
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
-                Nomi {
-                    id: name_11
-                    Text {
-                        text: " 11) Diallo"
-                        font.pixelSize: 12
-                        font.bold: true
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+            }
+            Nomi {
+                id: name_12
+                Text {
+                    text: " 12) Francinetti"
+                    font.pixelSize: 12
+                    font.bold: true
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                anchors.top: name_11.bottom
+            }
+            Nomi {
+                id: name_13
+                Text {
+                    text: " 13) Fumagalli"
+                    font.pixelSize: 12
+                    font.bold: true
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                anchors.top: name_12.bottom
+            }
+            Nomi {
+                id: name_14
+                Text {
+                    text: " 14) Bombardieri"
+                    font.pixelSize: 12
+                    font.bold: true
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                anchors.top: name_13.bottom
+            }
+            Nomi {
+                id: name_15
+                Text {
+                    text: " 15) Oberti"
+                    font.pixelSize: 12
+                    font.bold: true
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                anchors.top: name_14.bottom
+            }
+            Nomi {
+                id: name_16
+                Text {
+                    text: " 16) Mazzeo"
+                    font.pixelSize: 12
+                    font.bold: true
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                anchors.top: name_15.bottom
+            }
+            Nomi {
+                id: name_17
+                Text {
+                    text: " 17) Mangone"
+                    font.pixelSize: 12
+                    font.bold: true
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                anchors.top: name_16.bottom
+            }
+            Nomi {
+                id: name_18
+                Text {
+                    text: " 18) Zanini"
+                    font.pixelSize: 12
+                    font.bold: true
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                anchors.top: name_17.bottom
+            }
+            Nomi {
+                id: name_19
+                Text {
+                    text: " 19) Balducchi"
+                    font.pixelSize: 12
+                    font.bold: true
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                anchors.top: name_18.bottom
+            }
+            Nomi {
+                id: name_20
+                Text {
+                    text: " 20) Nicoli"
+                    font.pixelSize: 12
+                    font.bold: true
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                anchors.top: name_19.bottom
+            }*/
+                ListModel {
+                    id: group2
+                    ListElement { position: "11)"; name: "Diallo"}
+                    ListElement { position: "12)"; name: "Anguelov"}
+                    ListElement { position: "13)"; name: "Francinetti"}
+                    ListElement { position: "14)"; name: "Romeo"}
+                    ListElement { position: "15)"; name: "Balducchi"}
+                    ListElement { position: "16)"; name: "Zanini"}
+                    ListElement { position: "17)"; name: "Ratta"}
+                    ListElement { position: "18)"; name: "Carminati"}
+                    ListElement { position: "19)"; name: "Fumagalli"}
+                    ListElement { position: "20)"; name: "Levi"}
+                }
+                ListView {
+                    anchors.fill: parent
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    model: group1
+                    delegate: namedelagate
+                    header:
+                        Rectangle {
+                        anchors {
+                            left: parent.left
+                            right: parent.right
+                        }
+                        height: 1
+                        color: "black"
                     }
-                    anchors.top: parent.top
-                }
-                Nomi {
-                    id: name_12
-                    Text {
-                        text: " 12) Francinetti"
-                        font.pixelSize: 12
-                        font.bold: true
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
+                    footer:
+                        Rectangle {
+                        anchors {
+                            left: parent.left
+                            right: parent.right
+                        }
+                        height: 1
+                        color: "black"
                     }
-                    anchors.top: name_11.bottom
                 }
-                Nomi {
-                    id: name_13
-                    Text {
-                        text: " 13) Fumagalli"
-                        font.pixelSize: 12
-                        font.bold: true
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                    anchors.top: name_12.bottom
-                }
-                Nomi {
-                    id: name_14
-                    Text {
-                        text: " 14) Bombardieri"
-                        font.pixelSize: 12
-                        font.bold: true
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                    anchors.top: name_13.bottom
-                }
-                Nomi {
-                    id: name_15
-                    Text {
-                        text: " 15) Oberti"
-                        font.pixelSize: 12
-                        font.bold: true
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                    anchors.top: name_14.bottom
-                }
-                Nomi {
-                    id: name_16
-                    Text {
-                        text: " 16) Mazzeo"
-                        font.pixelSize: 12
-                        font.bold: true
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                    anchors.top: name_15.bottom
-                }
-                Nomi {
-                    id: name_17
-                    Text {
-                        text: " 17) Mangone"
-                        font.pixelSize: 12
-                        font.bold: true
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                    anchors.top: name_16.bottom
-                }
-                Nomi {
-                    id: name_18
-                    Text {
-                        text: " 18) Zanini"
-                        font.pixelSize: 12
-                        font.bold: true
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                    anchors.top: name_17.bottom
-                }
-                Nomi {
-                    id: name_19
-                    Text {
-                        text: " 19) Balducchi"
-                        font.pixelSize: 12
-                        font.bold: true
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                    anchors.top: name_18.bottom
-                }
-                Nomi {
-                    id: name_20
-                    Text {
-                        text: " 20) Nicoli"
-                        font.pixelSize: 12
-                        font.bold: true
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                    anchors.top: name_19.bottom
-                }
+
             }
         }
         SideArea {
@@ -587,6 +682,25 @@ Rectangle {
                 right: right_side_6.left
                 top: central_zone_5.bottom
             }
+            Grid {
+                anchors.horizontalCenter: parent.horizontalCenter
+                y:15
+                columns: 3; rows: 4
+                spacing: 20
+                Repeater {
+                    model: 11
+                Rectangle {
+                    width: 30; height: 30
+                    color: "lightblue"
+                    Text {
+                        anchors.centerIn: parent
+                        text: controllo(model.index)
+                        font.pointSize: 10
+                    }
+                }
+            }
+            }
+            /*
             Tastiera {
                 id: zone_1
                 x: 72.5
@@ -755,7 +869,7 @@ Rectangle {
                     color: "Dodgerblue"
                     Bottone {}
                 }
-            }
+            }*/
         }
         SideArea {
             id: right_side_6
@@ -777,4 +891,6 @@ Rectangle {
             }
         }
     }
+
+
 }
